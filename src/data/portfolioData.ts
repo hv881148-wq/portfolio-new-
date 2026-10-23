@@ -65,6 +65,13 @@ export interface AchievementItem {
   category: { en: string; hi: string };
 }
 
+const getAssetUrl = (assetPath: string) => {
+  const base = typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL ? import.meta.env.BASE_URL : './';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  const cleanPath = assetPath.startsWith('/') ? assetPath.slice(1) : assetPath;
+  return `${cleanBase}${cleanPath}`;
+};
+
 export const portfolioConfig = {
   // Identity
   fullName: "Harshit Verma",
@@ -76,7 +83,7 @@ export const portfolioConfig = {
   openToOpportunities: true,
   
   // Resume assets
-  resumePdfUrl: "/assets/aistudio/Harshit_Verma_Resume_ATS_1ec9a430.pdf",
+  resumePdfUrl: getAssetUrl("assets/aistudio/Harshit_Verma_Resume_ATS_1ec9a430.pdf"),
   resumeFileName: "Harshit_Verma_Resume_ATS.pdf",
   
   // Verified contact information

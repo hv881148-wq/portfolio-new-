@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Language } from './data/portfolioData';
 import { ScrollToTop } from './components/ScrollToTop';
 import { IntroAnimation } from './components/IntroAnimation';
@@ -84,7 +84,7 @@ export default function App() {
   };
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="min-h-screen flex flex-col bg-white dark:bg-[#080C14] text-slate-900 dark:text-white transition-colors duration-200">
         {/* Scroll to top on every route transition */}
         <ScrollToTop />
@@ -156,6 +156,6 @@ export default function App() {
           language={language}
         />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
